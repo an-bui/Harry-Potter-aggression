@@ -43,6 +43,8 @@ hp_graph <- hp_data %>%
   geom_col(aes(fill = Name), position = "dodge") +
   # make books go on y-axis
   coord_flip() +
+  # add axis labels
+  labs(x = "Books", y = "Aggression level") +
   # theme things
   theme_bw()
 
