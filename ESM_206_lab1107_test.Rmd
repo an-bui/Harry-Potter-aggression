@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+#### 1. Set up.
 ```{r set up code, include = FALSE}
 library(tidyverse)
 
@@ -20,3 +20,47 @@ Save .rmd to github to save this version stored somewhere. Go through a 3 step p
 **1. Stage** Select files
 **2. Commit** Select commit. _Always add a message_ to know what changed in that version.  
 **3. Push** Push to github.  
+
+In R, nothing will show up to commit unless you've changed something in your file.
+
+On github:  
+- click on the file to see what the version looks like
+
+#### 2. Basic wrangling and make a graph.
+Compare Harry and Draco's aggression rates.
+
+```{r basic graph}
+# create new data from from hp_data
+hp_graph <- hp_data %>% 
+  # filter rows by Harry and Draco Malfoy
+  filter(Name == "Harry" | Name == "Draco Malfoy") %>% 
+  # select columns desired
+  select(Name, book, agg.per.mention) %>% 
+  
+  # pipe into ggplot to graph, don't have to call the data frame because it knows to use the one from the pipe
+  ggplot(aes(x = book, y = agg.per.mention)) +
+  # make a column graph - default is to stack, make the fill based on Name, position = "dodge" makes it cluster by book
+  geom_col(aes(fill = Name), position = "dodge") +
+  # make books go on y-axis
+  coord_flip() +
+  # theme things
+  theme_bw()
+
+hp_graph
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
