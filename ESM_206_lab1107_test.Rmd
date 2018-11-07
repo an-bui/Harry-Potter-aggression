@@ -1,0 +1,22 @@
+---
+title: "Lab 6"
+author: "An Bui"
+date: "07 November 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r set up code, include = FALSE}
+library(tidyverse)
+
+hp_data <- read_csv("harry_potter_aggression_full.csv")
+```
+
+Save .rmd to github to save this version stored somewhere. Go through a 3 step process:  
+**1. Stage** Select files
+**2. Commit** Select commit. _Always add a message_ to know what changed in that version.
+**3. Push**
